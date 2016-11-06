@@ -6,9 +6,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -113,10 +115,10 @@ public class StartActivity extends AppCompatActivity{
         //make directory for file.
         new File(fileDir).mkdirs();
         HSSFWorkbook workbook = new HSSFWorkbook();
-        HSSFSheet timeStampSheet = workbook.createSheet("TimeStamp Sheet");
+        HSSFSheet timeStampSheet = workbook.createSheet("TimeStamps");
         HSSFRow row = timeStampSheet.createRow(0);
         HSSFCell cell = row.createCell(0);
-        cell.setCellValue(new HSSFRichTextString("TimeStamp for current test"));
+        cell.setCellValue(new HSSFRichTextString("TS"));
 
         FileOutputStream fos = null;
         try {
@@ -147,7 +149,9 @@ public class StartActivity extends AppCompatActivity{
     private View.OnClickListener excelListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            try {
+            File to = null;
+            Utility.renameExcel(filenameEditText,from, to, StartActivity.this, coordinatorLayout);
+            /*try {
                 if(filenameEditText.getText()!=null) {
                     if(!filenameEditText.getText().toString().equals("")) {
                         File directory = new File(fileDir);
@@ -168,11 +172,11 @@ public class StartActivity extends AppCompatActivity{
 
             } catch (Exception e) {
                 e.printStackTrace();
-            }
+            }*/
         }
     };
 
-    private void callSnackbar(String text) {
+    public void callSnackbar(String text) {
 
         Snackbar snackbar = Snackbar
                 .make(coordinatorLayout, text, Snackbar.LENGTH_SHORT);
@@ -180,9 +184,9 @@ public class StartActivity extends AppCompatActivity{
 
     }
 
-    private void swipeToDissmissSnackbar(String text) {
+    public void swipeToDissmissSnackbar(String text) {
         Snackbar snackbar = Snackbar
-                .make(coordinatorLayout, text, Snackbar.LENGTH_INDEFINITE);
+                .make(coordinatorLayout, text, Snackbar.LENGTH_LONG);
         snackbar.show();
     }
 
@@ -199,11 +203,12 @@ public class StartActivity extends AppCompatActivity{
                 if(file.exists()) {
                     FileInputStream fileStream = new FileInputStream(file);
                     workbook = new HSSFWorkbook(fileStream);
-                    HSSFSheet sheet = workbook.getSheet("TimeStamp Sheet");
+                    HSSFSheet sheet = workbook.getSheet("TimeStamps");
                     //String value = sheet.getRow(0).getCell(0).getStringCellValue();
                     sheet.createRow(clicks).createCell(0).setCellValue(currentTime);
                     fos = new FileOutputStream(file);
                     workbook.write(fos);
+                    Log.d(TAG,"updated value :" + sheet.getRow(clicks).getCell(0).getStringCellValue());
                 } else {
                     Log.d(TAG,"no file");
                 }
@@ -247,6 +252,10 @@ public class StartActivity extends AppCompatActivity{
                 //Change name to start for standby
                 recordButton.setText(getResources().getString(R.string.start_record));
                 ultraSenseModule.stopRecord();
+                filenameEditText.setText(time);
+                File directory = new File(fileDir);
+                File to = new File(directory, time);
+                Utility.renameExcel(filenameEditText,from, to, StartActivity.this, coordinatorLayout);
                 swipeToDissmissSnackbar("Audio files saved with names: "+time);
                 ultraSenseModule.saveRecordedFiles(time);
             }
