@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/home/dinesh/AndroidStudioProjects/UltrasenseII/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="/home/dinesh/AndroidStudioProjects/UltrasenseII/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.4.0_997bd0a110e2b348ea55d35ba61159e3c649acaa.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/dinesh/AndroidStudioProjects/UltrasenseII/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="/home/dinesh/AndroidStudioProjects/UltrasenseII/app/build/intermediates/pre-dexed/debug/internal_impl-23.4.0_b6b8471491b1e2ebf74e55d5bd1c88309a796ca7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/dinesh/.gradle/caches/modules-2/files-2.1/org.apache.poi/poi/3.9/5d5e41354e88322e4bc590b31f3d2d1d52b3e6ac/poi-3.9.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="5d5e41354e88322e4bc590b31f3d2d1d52b3e6ac">
+        <dex dex="/home/dinesh/AndroidStudioProjects/UltrasenseII/app/build/intermediates/pre-dexed/debug/poi-3.9_d880208c4bf9450ba360083ce16b0dd8cd78583d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/dinesh/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/6.1.0/63735f48b82bcd24cdd33821342428252eb1ca5a/butterknife-6.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
+        <dex dex="/home/dinesh/AndroidStudioProjects/UltrasenseII/app/build/intermediates/pre-dexed/debug/butterknife-6.1.0_e97bb4c802ce3da1c828ddad639281ebf7474c2e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/dinesh/AndroidStudioProjects/UltrasenseII/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="/home/dinesh/AndroidStudioProjects/UltrasenseII/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.4.0_7ab7db35cd5cb4f332ae9588ad83f8efb50bf025.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/dinesh/AndroidStudioProjects/UltrasenseII/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="fc63b820d54c8a27a3a614bdd93920e0076581c2">
+        <dex dex="/home/dinesh/AndroidStudioProjects/UltrasenseII/app/build/intermediates/pre-dexed/debug/com.android.support-design-22.2.0_0d0400f6ec6dbda524c5a5a12fbe73a9fd0b8157.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/dinesh/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.5/cf993e250ff71804754ec2734a16f23c0be99f70/commons-codec-1.5.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="cf993e250ff71804754ec2734a16f23c0be99f70">
+        <dex dex="/home/dinesh/AndroidStudioProjects/UltrasenseII/app/build/intermediates/pre-dexed/debug/commons-codec-1.5_fc9da1150be79daf709e7f626436de8174f0e323.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/dinesh/AndroidStudioProjects/UltrasenseII/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="fc63b820d54c8a27a3a614bdd93920e0076581c2">
+        <dex dex="/home/dinesh/AndroidStudioProjects/UltrasenseII/app/build/intermediates/pre-dexed/debug/com.android.support-design-22.2.0_0d0400f6ec6dbda524c5a5a12fbe73a9fd0b8157.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/dinesh/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="/home/dinesh/AndroidStudioProjects/UltrasenseII/app/build/intermediates/pre-dexed/debug/support-annotations-23.4.0_e667d733bd11c5952e8e57e6d4ab4a8188c6bdb2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/dinesh/AndroidStudioProjects/UltrasenseII/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="/home/dinesh/AndroidStudioProjects/UltrasenseII/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.4.0_4443791f6c93f42c56ec29e65e0901df9c575176.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/dinesh/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.5/cf993e250ff71804754ec2734a16f23c0be99f70/commons-codec-1.5.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="cf993e250ff71804754ec2734a16f23c0be99f70">
+        <dex dex="/home/dinesh/AndroidStudioProjects/UltrasenseII/app/build/intermediates/pre-dexed/debug/commons-codec-1.5_fc9da1150be79daf709e7f626436de8174f0e323.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/dinesh/AndroidStudioProjects/UltrasenseII/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="/home/dinesh/AndroidStudioProjects/UltrasenseII/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.4.0_a60a49860a79300c6cef692515153c4a90586788.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/dinesh/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/6.1.0/63735f48b82bcd24cdd33821342428252eb1ca5a/butterknife-6.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
+        <dex dex="/home/dinesh/AndroidStudioProjects/UltrasenseII/app/build/intermediates/pre-dexed/debug/butterknife-6.1.0_e97bb4c802ce3da1c828ddad639281ebf7474c2e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/dinesh/.gradle/caches/modules-2/files-2.1/org.apache.poi/poi/3.9/5d5e41354e88322e4bc590b31f3d2d1d52b3e6ac/poi-3.9.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5d5e41354e88322e4bc590b31f3d2d1d52b3e6ac">
+        <dex dex="/home/dinesh/AndroidStudioProjects/UltrasenseII/app/build/intermediates/pre-dexed/debug/poi-3.9_d880208c4bf9450ba360083ce16b0dd8cd78583d.jar" />
+    </item>
+
+</items>
