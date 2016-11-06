@@ -66,6 +66,8 @@ public class StartActivity extends AppCompatActivity{
         getPermissionForExcel();
         setFilters();
         this.ultraSenseModule = new UltraSenseModule(StartActivity.this);
+        //Make excel data collection off until recording starts
+        timeStampButton.setClickable(false);
     }
 
     private void setFilters() {
@@ -133,8 +135,6 @@ public class StartActivity extends AppCompatActivity{
                     e.printStackTrace();
                 }
             }
-            //Toast.makeText(StartActivity.this, "File Generated", Toast.LENGTH_LONG).show();
-
         }
     }
 
@@ -152,8 +152,13 @@ public class StartActivity extends AppCompatActivity{
                     if(!filenameEditText.getText().toString().equals("")) {
                         File directory = new File(fileDir);
                         from = new File(directory, getString(R.string.app_name)+".xls");
-                        File to = new File(directory, filenameEditText.getText().toString() + ".xls");
-                        from.renameTo(to);
+                        if(null!=from) {
+                            File to = new File(directory, filenameEditText.getText().toString() + ".xls");
+                            from.renameTo(to);
+                            swipeToDissmissSnackbar("File renamed to "+filenameEditText.getText().toString());
+                        } else {
+                            callSnackbar("File does not exist");
+                        }
                     } else {
                         callSnackbar("Enter Filename to change");
                     }
@@ -173,6 +178,12 @@ public class StartActivity extends AppCompatActivity{
                 .make(coordinatorLayout, text, Snackbar.LENGTH_SHORT);
         snackbar.show();
 
+    }
+
+    private void swipeToDissmissSnackbar(String text) {
+        Snackbar snackbar = Snackbar
+                .make(coordinatorLayout, text, Snackbar.LENGTH_INDEFINITE);
+        snackbar.show();
     }
 
     private View.OnClickListener timeStampListener = new View.OnClickListener() {
@@ -236,7 +247,7 @@ public class StartActivity extends AppCompatActivity{
                 //Change name to start for standby
                 recordButton.setText(getResources().getString(R.string.start_record));
                 ultraSenseModule.stopRecord();
-                callSnackbar("Audio files saved with names: "+time);
+                swipeToDissmissSnackbar("Audio files saved with names: "+time);
                 ultraSenseModule.saveRecordedFiles(time);
             }
         } catch (Exception e) {
@@ -257,6 +268,8 @@ public class StartActivity extends AppCompatActivity{
                 }
                 else if (remainingTime.trim().equals("1")) {
                     callSnackbar("Recording process has started. Start Activity");
+                    //Set excel data collection true since recording has started
+                    timeStampButton.setClickable(true);
                     recordButton.setText(getResources().getString(R.string.stop_record));
                     recordButton.setClickable(true);
                 }

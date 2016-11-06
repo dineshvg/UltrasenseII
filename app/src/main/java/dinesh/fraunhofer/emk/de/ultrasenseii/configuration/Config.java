@@ -25,7 +25,7 @@ public class Config {
     };
 
     public static final String fileDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
-            .getAbsolutePath() + File.separator + "UltraSenseII Timestamps" + File.separator;
+            .getAbsolutePath() + File.separator + "UltraSenseII" + File.separator;
 
     public static final String BROADCAST_COUNTDOWN_TIMER = "broadcastimerforcountdownstart";
     public static final String TIMER = "remainingtime";

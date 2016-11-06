@@ -35,7 +35,7 @@ public class AudioManager{
     private static final String TAG = AudioManager.class.getSimpleName();
 
     private Context ctx;
-    private static final String fileDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() + File.separator + "UltraSense" + File.separator;
+    private static final String fileDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC).getAbsolutePath() + File.separator + "UltraSenseII" + File.separator;
 
     private static final int SAMPLE_RATE = 44100;
     private DataOutputStream dosSend;
