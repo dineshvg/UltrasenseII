@@ -1,19 +1,19 @@
 The target system is: Android - 17 - armv5te
-The host system is: Linux - 4.4.0-45-generic - x86_64
+The host system is: Linux - 4.4.0-47-generic - x86_64
 Determining if the C compiler works passed with the following output:
-Change Dir: /home/dinesh/GitHub Repo/UltrasenseII/app/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/CMakeTmp
+Change Dir: /home/dinesh/GitHubRepo/UltrasenseII/app/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/dinesh/Android/Sdk/cmake/3.6.3155560/bin/ninja" "cmTC_71c6e"
-[1/2] Building C object CMakeFiles/cmTC_71c6e.dir/testCCompiler.c.o
-[2/2] Linking C executable cmTC_71c6e
+Run Build Command:"/home/dinesh/Android/Sdk/cmake/3.6.3155560/bin/ninja" "cmTC_de834"
+[1/2] Building C object CMakeFiles/cmTC_de834.dir/testCCompiler.c.o
+[2/2] Linking C executable cmTC_de834
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /home/dinesh/GitHub Repo/UltrasenseII/app/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/CMakeTmp
+Change Dir: /home/dinesh/GitHubRepo/UltrasenseII/app/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/dinesh/Android/Sdk/cmake/3.6.3155560/bin/ninja" "cmTC_3ff43"
-[1/2] Building C object CMakeFiles/cmTC_3ff43.dir/CMakeCCompilerABI.c.o
-[2/2] Linking C executable cmTC_3ff43
+Run Build Command:"/home/dinesh/Android/Sdk/cmake/3.6.3155560/bin/ninja" "cmTC_71094"
+[1/2] Building C object CMakeFiles/cmTC_71094.dir/CMakeCCompilerABI.c.o
+[2/2] Linking C executable cmTC_71094
 Android clang version 3.8.256229  (based on LLVM 3.8.256229)
 Target: armv5te-none-linux-android
 Thread model: posix
@@ -22,16 +22,16 @@ Found candidate GCC installation: /home/dinesh/Android/Sdk/ndk-bundle/toolchains
 Selected GCC installation: /home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x
 Candidate multilib: .;@m32
 Selected multilib: .;@m32
- "/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin/ld" --sysroot=/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm -pie -z relro -X --build-id --eh-frame-hdr -m armelf_linux_eabi -dynamic-linker /system/bin/linker -o cmTC_3ff43 /home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib/../lib/crtbegin_dynamic.o -L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x -L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/../lib -L/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib/../lib -L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib -L/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_3ff43.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl /home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib/../lib/crtend_android.o
+ "/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin/ld" --sysroot=/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm -pie -z relro -X --build-id --eh-frame-hdr -m armelf_linux_eabi -dynamic-linker /system/bin/linker -o cmTC_71094 /home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib/../lib/crtbegin_dynamic.o -L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x -L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/../lib -L/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib/../lib -L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib -L/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_71094.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl /home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib/../lib/crtend_android.o
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(arm-linux-androideabi-ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/dinesh/GitHub Repo/UltrasenseII/app/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/dinesh/GitHubRepo/UltrasenseII/app/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/home/dinesh/Android/Sdk/cmake/3.6.3155560/bin/ninja" "cmTC_3ff43"]
-  ignore line: [[1/2] Building C object CMakeFiles/cmTC_3ff43.dir/CMakeCCompilerABI.c.o]
-  ignore line: [[2/2] Linking C executable cmTC_3ff43]
+  ignore line: [Run Build Command:"/home/dinesh/Android/Sdk/cmake/3.6.3155560/bin/ninja" "cmTC_71094"]
+  ignore line: [[1/2] Building C object CMakeFiles/cmTC_71094.dir/CMakeCCompilerABI.c.o]
+  ignore line: [[2/2] Linking C executable cmTC_71094]
   ignore line: [Android clang version 3.8.256229  (based on LLVM 3.8.256229)]
   ignore line: [Target: armv5te-none-linux-android]
   ignore line: [Thread model: posix]
@@ -42,7 +42,7 @@ Parsed C implicit link information from above output:
   ignore line: [@m32]
   ignore line: [Selected multilib: .]
   ignore line: [@m32]
-  link line: [ "/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin/ld" --sysroot=/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm -pie -z relro -X --build-id --eh-frame-hdr -m armelf_linux_eabi -dynamic-linker /system/bin/linker -o cmTC_3ff43 /home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib/../lib/crtbegin_dynamic.o -L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x -L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/../lib -L/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib/../lib -L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib -L/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_3ff43.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl /home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib/../lib/crtend_android.o]
+  link line: [ "/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin/ld" --sysroot=/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm -pie -z relro -X --build-id --eh-frame-hdr -m armelf_linux_eabi -dynamic-linker /system/bin/linker -o cmTC_71094 /home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib/../lib/crtbegin_dynamic.o -L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x -L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/../lib -L/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib/../lib -L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib -L/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_71094.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl /home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib/../lib/crtend_android.o]
     arg [/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin/ld] ==> ignore
     arg [--sysroot=/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm] ==> ignore
     arg [-pie] ==> ignore
@@ -55,7 +55,7 @@ Parsed C implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/system/bin/linker] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_3ff43] ==> ignore
+    arg [cmTC_71094] ==> ignore
     arg [/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib/../lib/crtbegin_dynamic.o] ==> ignore
     arg [-L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x] ==> dir [/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x]
     arg [-L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/../lib] ==> dir [/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/../lib]
@@ -80,7 +80,7 @@ Parsed C implicit link information from above output:
     arg [-znow] ==> ignore
     arg [--gc-sections] ==> ignore
     arg [-znocopyreloc] ==> ignore
-    arg [CMakeFiles/cmTC_3ff43.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_71094.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [-ldl] ==> lib [dl]
     arg [-lc] ==> lib [c]
@@ -100,19 +100,19 @@ Parsed C implicit link information from above output:
 
 
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /home/dinesh/GitHub Repo/UltrasenseII/app/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/CMakeTmp
+Change Dir: /home/dinesh/GitHubRepo/UltrasenseII/app/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/dinesh/Android/Sdk/cmake/3.6.3155560/bin/ninja" "cmTC_e872e"
-[1/2] Building CXX object CMakeFiles/cmTC_e872e.dir/testCXXCompiler.cxx.o
-[2/2] Linking CXX executable cmTC_e872e
+Run Build Command:"/home/dinesh/Android/Sdk/cmake/3.6.3155560/bin/ninja" "cmTC_b674e"
+[1/2] Building CXX object CMakeFiles/cmTC_b674e.dir/testCXXCompiler.cxx.o
+[2/2] Linking CXX executable cmTC_b674e
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /home/dinesh/GitHub Repo/UltrasenseII/app/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/CMakeTmp
+Change Dir: /home/dinesh/GitHubRepo/UltrasenseII/app/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/dinesh/Android/Sdk/cmake/3.6.3155560/bin/ninja" "cmTC_8dabf"
-[1/2] Building CXX object CMakeFiles/cmTC_8dabf.dir/CMakeCXXCompilerABI.cpp.o
-[2/2] Linking CXX executable cmTC_8dabf
+Run Build Command:"/home/dinesh/Android/Sdk/cmake/3.6.3155560/bin/ninja" "cmTC_757b7"
+[1/2] Building CXX object CMakeFiles/cmTC_757b7.dir/CMakeCXXCompilerABI.cpp.o
+[2/2] Linking CXX executable cmTC_757b7
 Android clang version 3.8.256229  (based on LLVM 3.8.256229)
 Target: armv5te-none-linux-android
 Thread model: posix
@@ -121,16 +121,16 @@ Found candidate GCC installation: /home/dinesh/Android/Sdk/ndk-bundle/toolchains
 Selected GCC installation: /home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x
 Candidate multilib: .;@m32
 Selected multilib: .;@m32
- "/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin/ld" --sysroot=/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm -pie -z relro -X --build-id --eh-frame-hdr -m armelf_linux_eabi -dynamic-linker /system/bin/linker -o cmTC_8dabf /home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib/../lib/crtbegin_dynamic.o -L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x -L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/../lib -L/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib/../lib -L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib -L/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_8dabf.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl /home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib/../lib/crtend_android.o
+ "/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin/ld" --sysroot=/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm -pie -z relro -X --build-id --eh-frame-hdr -m armelf_linux_eabi -dynamic-linker /system/bin/linker -o cmTC_757b7 /home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib/../lib/crtbegin_dynamic.o -L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x -L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/../lib -L/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib/../lib -L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib -L/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_757b7.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl /home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib/../lib/crtend_android.o
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(arm-linux-androideabi-ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/dinesh/GitHub Repo/UltrasenseII/app/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/dinesh/GitHubRepo/UltrasenseII/app/.externalNativeBuild/cmake/debug/armeabi/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/home/dinesh/Android/Sdk/cmake/3.6.3155560/bin/ninja" "cmTC_8dabf"]
-  ignore line: [[1/2] Building CXX object CMakeFiles/cmTC_8dabf.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [[2/2] Linking CXX executable cmTC_8dabf]
+  ignore line: [Run Build Command:"/home/dinesh/Android/Sdk/cmake/3.6.3155560/bin/ninja" "cmTC_757b7"]
+  ignore line: [[1/2] Building CXX object CMakeFiles/cmTC_757b7.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [[2/2] Linking CXX executable cmTC_757b7]
   ignore line: [Android clang version 3.8.256229  (based on LLVM 3.8.256229)]
   ignore line: [Target: armv5te-none-linux-android]
   ignore line: [Thread model: posix]
@@ -141,7 +141,7 @@ Parsed CXX implicit link information from above output:
   ignore line: [@m32]
   ignore line: [Selected multilib: .]
   ignore line: [@m32]
-  link line: [ "/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin/ld" --sysroot=/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm -pie -z relro -X --build-id --eh-frame-hdr -m armelf_linux_eabi -dynamic-linker /system/bin/linker -o cmTC_8dabf /home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib/../lib/crtbegin_dynamic.o -L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x -L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/../lib -L/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib/../lib -L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib -L/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_8dabf.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl /home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib/../lib/crtend_android.o]
+  link line: [ "/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin/ld" --sysroot=/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm -pie -z relro -X --build-id --eh-frame-hdr -m armelf_linux_eabi -dynamic-linker /system/bin/linker -o cmTC_757b7 /home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib/../lib/crtbegin_dynamic.o -L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x -L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/../lib -L/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib/../lib -L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib -L/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_757b7.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl /home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib/../lib/crtend_android.o]
     arg [/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin/ld] ==> ignore
     arg [--sysroot=/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm] ==> ignore
     arg [-pie] ==> ignore
@@ -154,7 +154,7 @@ Parsed CXX implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/system/bin/linker] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_8dabf] ==> ignore
+    arg [cmTC_757b7] ==> ignore
     arg [/home/dinesh/Android/Sdk/ndk-bundle/platforms/android-17/arch-arm/usr/lib/../lib/crtbegin_dynamic.o] ==> ignore
     arg [-L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x] ==> dir [/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x]
     arg [-L/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/../lib] ==> dir [/home/dinesh/Android/Sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/lib/../lib]
@@ -179,7 +179,7 @@ Parsed CXX implicit link information from above output:
     arg [-znow] ==> ignore
     arg [--gc-sections] ==> ignore
     arg [-znocopyreloc] ==> ignore
-    arg [CMakeFiles/cmTC_8dabf.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_757b7.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc] ==> lib [gcc]

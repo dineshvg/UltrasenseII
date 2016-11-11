@@ -44,15 +44,18 @@ public class StartActivity extends AppCompatActivity{
 
     @InjectView(R.id.activity_start)
     RelativeLayout coordinatorLayout;
-    @InjectView(R.id.timeStampButton)
-    Button timeStampButton;
+    @InjectView(R.id.startButton)
+    Button startTimeButton;
+    @InjectView(R.id.stopButton)
+    Button stopTimeButton;
     @InjectView(R.id.recordButton)
     Button recordButton;
     @InjectView(R.id.filenameEditText)
     EditText filenameEditText;
     @InjectView(R.id.saveExcelButton)
     Button saveExcel;
-    int clicks = 0;
+    int startclicks = 0;
+    int stopclicks = 0;
     File file;
     File from;
     HSSFWorkbook workbook;
@@ -69,7 +72,7 @@ public class StartActivity extends AppCompatActivity{
         setFilters();
         this.ultraSenseModule = new UltraSenseModule(StartActivity.this);
         //Make excel data collection off until recording starts
-        timeStampButton.setClickable(false);
+        //startTimeButton.setClickable(false);
     }
 
     private void setFilters() {
@@ -118,7 +121,9 @@ public class StartActivity extends AppCompatActivity{
         HSSFSheet timeStampSheet = workbook.createSheet("TimeStamps");
         HSSFRow row = timeStampSheet.createRow(0);
         HSSFCell cell = row.createCell(0);
-        cell.setCellValue(new HSSFRichTextString("TS"));
+        cell.setCellValue(new HSSFRichTextString("Start"));
+        HSSFCell cell2 = row.createCell(1);
+        cell2.setCellValue(new HSSFRichTextString("Stop"));
 
         FileOutputStream fos = null;
         try {
@@ -141,7 +146,8 @@ public class StartActivity extends AppCompatActivity{
     }
 
     private void initListeners() {
-        timeStampButton.setOnClickListener(timeStampListener);
+        startTimeButton.setOnClickListener(startTimeStampListener);
+        stopTimeButton.setOnClickListener(stopTimeStampListener);
         recordButton.setOnClickListener(recordListener);
         saveExcel.setOnClickListener(excelListener);
     }
@@ -151,28 +157,6 @@ public class StartActivity extends AppCompatActivity{
         public void onClick(View view) {
             File to = null;
             Utility.renameExcel(filenameEditText,from, to, StartActivity.this, coordinatorLayout);
-            /*try {
-                if(filenameEditText.getText()!=null) {
-                    if(!filenameEditText.getText().toString().equals("")) {
-                        File directory = new File(fileDir);
-                        from = new File(directory, getString(R.string.app_name)+".xls");
-                        if(null!=from) {
-                            File to = new File(directory, filenameEditText.getText().toString() + ".xls");
-                            from.renameTo(to);
-                            swipeToDissmissSnackbar("File renamed to "+filenameEditText.getText().toString());
-                        } else {
-                            callSnackbar("File does not exist");
-                        }
-                    } else {
-                        callSnackbar("Enter Filename to change");
-                    }
-                } else {
-                    callSnackbar("Enter Filename to change");
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }*/
         }
     };
 
@@ -190,13 +174,13 @@ public class StartActivity extends AppCompatActivity{
         snackbar.show();
     }
 
-    private View.OnClickListener timeStampListener = new View.OnClickListener() {
+    private View.OnClickListener startTimeStampListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             FileOutputStream fos = null;
             try {
-                clicks = clicks+1;
-                Log.d(TAG,"clicks :"+clicks);
+                startclicks = startclicks+1;
+                Log.d(TAG,"startclicks :"+startclicks);
                 // TODO Store timeStamp in file on every click till the recording is going on.
                 String currentTime = Utility.getTimeStamp();
                 //File file = new File(fileDir + getString(R.string.app_name) + ".xls");
@@ -205,10 +189,53 @@ public class StartActivity extends AppCompatActivity{
                     workbook = new HSSFWorkbook(fileStream);
                     HSSFSheet sheet = workbook.getSheet("TimeStamps");
                     //String value = sheet.getRow(0).getCell(0).getStringCellValue();
-                    sheet.createRow(clicks).createCell(0).setCellValue(currentTime);
+                    sheet.createRow(startclicks).createCell(0).setCellValue(currentTime);
                     fos = new FileOutputStream(file);
                     workbook.write(fos);
-                    Log.d(TAG,"updated value :" + sheet.getRow(clicks).getCell(0).getStringCellValue());
+                    Log.d(TAG,"updated value startclicks :" + sheet.getRow(startclicks).getCell(0).getStringCellValue());
+                } else {
+                    Log.d(TAG,"no file");
+                }
+                Log.d(TAG,currentTime);
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (fos != null) {
+                    try {
+                        fos.flush();
+                        fos.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    };
+
+    private View.OnClickListener stopTimeStampListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            FileOutputStream fos = null;
+            try {
+                stopclicks = stopclicks+1;
+                Log.d(TAG,"stopclicks :"+stopclicks);
+                // TODO Store timeStamp in file on every click till the recording is going on.
+                String currentTime = Utility.getTimeStamp();
+                //File file = new File(fileDir + getString(R.string.app_name) + ".xls");
+                if(file.exists()) {
+                    FileInputStream fileStream = new FileInputStream(file);
+                    workbook = new HSSFWorkbook(fileStream);
+                    HSSFSheet sheet = workbook.getSheet("TimeStamps");
+                    //String value = sheet.getRow(0).getCell(0).getStringCellValue();
+                    if(sheet.getRow(stopclicks)!=null) {
+                        sheet.getRow(stopclicks).createCell(1).setCellValue(currentTime);
+                        fos = new FileOutputStream(file);
+                        workbook.write(fos);
+                        Log.d(TAG,"updated value stopclicks :" + sheet.getRow(stopclicks).getCell(1).getStringCellValue());
+                    } else {
+                        stopclicks = stopclicks-1;
+                        callSnackbar("No Start time");
+                    }
                 } else {
                     Log.d(TAG,"no file");
                 }
@@ -237,11 +264,13 @@ public class StartActivity extends AppCompatActivity{
 
     private void startRecordProcess() {
         try {
+            //
             // TODO Start the 20 Khz signal and also start the recording of the ambient signal through a recorder.
             if(recordButton.getText().equals(getResources().getString(R.string.start_record))) {
                 //Change name to stop for standby
-                recordButton.setText(getResources().getString(R.string.stop_record));
                 time = Utility.getWaveFileName();
+                callSnackbar(time);
+                recordButton.setText(getResources().getString(R.string.stop_record));
                 ultraSenseModule.createCustomScenario();
                 ultraSenseModule.startRecord();
                 //Start the 20 Khz signal from the speaker
@@ -278,7 +307,9 @@ public class StartActivity extends AppCompatActivity{
                 else if (remainingTime.trim().equals("1")) {
                     callSnackbar("Recording process has started. Start Activity");
                     //Set excel data collection true since recording has started
-                    timeStampButton.setClickable(true);
+                    startTimeButton.setClickable(true);
+                    time = Utility.getWaveFileName();
+                    callSnackbar(time);
                     recordButton.setText(getResources().getString(R.string.stop_record));
                     recordButton.setClickable(true);
                 }

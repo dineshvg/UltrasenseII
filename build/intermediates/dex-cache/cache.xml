@@ -39,12 +39,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/dinesh/GitHub Repo/UltrasenseII/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
+        jar="/home/dinesh/GitHubRepo/UltrasenseII/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
-        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
-        <dex dex="/home/dinesh/GitHub Repo/UltrasenseII/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.4.0_8804f23f141ae36db4b68bb8d081fb5d94c7cc3e.jar" />
+        sha1="1821601ddbec5ff125653097812823388700af74">
+        <dex dex="/home/dinesh/GitHubRepo/UltrasenseII/app/build/intermediates/pre-dexed/debug/com.android.support-design-22.2.1_eba3e291979b50ae22226282f2b800fc82d5a450.jar" />
     </item>
     <item
         is-multidex="false"
@@ -66,12 +66,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/dinesh/GitHub Repo/UltrasenseII/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
+        jar="/home/dinesh/GitHubRepo/UltrasenseII/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
-        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
-        <dex dex="/home/dinesh/GitHub Repo/UltrasenseII/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.4.0_720b25655198a0a0188a5a4be6fce0fb9e31f9f7.jar" />
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="/home/dinesh/GitHubRepo/UltrasenseII/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.4.0_b39af654c56e9c66b532d30f239f96ef7c30f889.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/dinesh/GitHubRepo/UltrasenseII/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="/home/dinesh/GitHubRepo/UltrasenseII/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.4.0_86a4c47b508e8c7da269ff65e67c88248fa42b32.jar" />
     </item>
     <item
         is-multidex="false"
@@ -81,15 +90,6 @@
         revision="23.0.3"
         sha1="cf993e250ff71804754ec2734a16f23c0be99f70">
         <dex dex="/home/dinesh/AndroidStudioProjects/UltrasenseII/app/build/intermediates/pre-dexed/debug/commons-codec-1.5_fc9da1150be79daf709e7f626436de8174f0e323.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/dinesh/GitHub Repo/UltrasenseII/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
-        <dex dex="/home/dinesh/GitHub Repo/UltrasenseII/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.4.0_41e32d62a4107d4e20c438a0bea1b788bd4f56e7.jar" />
     </item>
     <item
         is-multidex="false"
@@ -111,21 +111,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/dinesh/GitHub Repo/UltrasenseII/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.3"
-        sha1="1821601ddbec5ff125653097812823388700af74">
-        <dex dex="/home/dinesh/GitHub Repo/UltrasenseII/app/build/intermediates/pre-dexed/debug/com.android.support-design-22.2.1_cc039df6c0e84ba53640ec3551b05d1557899b19.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/home/dinesh/AndroidStudioProjects/UltrasenseII/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
         sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
         <dex dex="/home/dinesh/AndroidStudioProjects/UltrasenseII/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.4.0_4443791f6c93f42c56ec29e65e0901df9c575176.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/dinesh/GitHubRepo/UltrasenseII/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="/home/dinesh/GitHubRepo/UltrasenseII/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.4.0_29dcac030834b148eab1f572cdee919d6e5260b5.jar" />
     </item>
     <item
         is-multidex="false"
@@ -138,12 +138,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/dinesh/GitHub Repo/UltrasenseII/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
+        jar="/home/dinesh/GitHubRepo/UltrasenseII/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
         sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
-        <dex dex="/home/dinesh/GitHub Repo/UltrasenseII/app/build/intermediates/pre-dexed/debug/internal_impl-23.4.0_c62b828ed8a65acdb1a3d015e7fd077a06235c8e.jar" />
+        <dex dex="/home/dinesh/GitHubRepo/UltrasenseII/app/build/intermediates/pre-dexed/debug/internal_impl-23.4.0_c5560a9be7d29ac0c84cb434ae416d77e9eb39e9.jar" />
     </item>
     <item
         is-multidex="false"
@@ -165,12 +165,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="/home/dinesh/GitHub Repo/UltrasenseII/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
+        jar="/home/dinesh/GitHubRepo/UltrasenseII/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.3"
-        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
-        <dex dex="/home/dinesh/GitHub Repo/UltrasenseII/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.4.0_f52cc8ddfc0f8a699df508168ecb596ef2679c44.jar" />
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="/home/dinesh/GitHubRepo/UltrasenseII/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.4.0_824df70fb879049d25aa45cb2a5062d2aac2d82f.jar" />
     </item>
     <item
         is-multidex="false"

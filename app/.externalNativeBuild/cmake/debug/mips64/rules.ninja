@@ -42,7 +42,7 @@ rule CXX_SHARED_LIBRARY_LINKER__native-lib
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /home/dinesh/Android/Sdk/cmake/3.6.3155560/bin/cmake -H"/home/dinesh/GitHub Repo/UltrasenseII/app" -B"/home/dinesh/GitHub Repo/UltrasenseII/app/.externalNativeBuild/cmake/debug/mips64"
+  command = /home/dinesh/Android/Sdk/cmake/3.6.3155560/bin/cmake -H/home/dinesh/GitHubRepo/UltrasenseII/app -B/home/dinesh/GitHubRepo/UltrasenseII/app/.externalNativeBuild/cmake/debug/mips64
   description = Re-running CMake...
   generator = 1
 

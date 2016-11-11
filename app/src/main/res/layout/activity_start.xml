@@ -33,12 +33,12 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/timeStampButton"
+                android:id="@+id/startButton"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:background="@drawable/round_button"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="Update time"
+                android:text="@string/start_time"
                 android:textColor="#fff" />
 
         </LinearLayout>
@@ -50,21 +50,43 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/recordButton"
+                android:id="@+id/stopButton"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:background="@drawable/round_button"
                 android:gravity="center_vertical|center_horizontal"
-                android:text="@string/start_record"
+                android:text="@string/stop_time"
                 android:textColor="#fff"/>
 
         </LinearLayout>
 
     </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/buttonPanel2"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/buttonPanel">
+
+        <Button
+            android:id="@+id/recordButton"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/round_button"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/start_record"
+            android:textColor="#fff" />
+
+    </RelativeLayout>
     
     <EditText
         android:id="@+id/filenameEditText"
-        android:layout_below="@+id/buttonPanel"
+        android:layout_below="@+id/buttonPanel2"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
