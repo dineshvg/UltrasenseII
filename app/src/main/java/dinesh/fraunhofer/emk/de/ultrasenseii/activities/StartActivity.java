@@ -32,6 +32,7 @@ import java.io.IOException;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import dinesh.fraunhofer.emk.de.ultrasenseii.R;
+import dinesh.fraunhofer.emk.de.ultrasenseii.api.StopWatch;
 import dinesh.fraunhofer.emk.de.ultrasenseii.configuration.Config;
 import dinesh.fraunhofer.emk.de.ultrasenseii.util.Utility;
 import dinesh.fraunhofer.emk.de.ultrasenseii.view.UltraSenseModule;
@@ -61,6 +62,7 @@ public class StartActivity extends AppCompatActivity{
     HSSFWorkbook workbook;
     String time = "";
     private UltraSenseModule ultraSenseModule;
+    StopWatch timer = new StopWatch();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +72,7 @@ public class StartActivity extends AppCompatActivity{
         initListeners();
         getPermissionForExcel();
         setFilters();
+
         this.ultraSenseModule = new UltraSenseModule(StartActivity.this);
         //Make excel data collection off until recording starts
         //startTimeButton.setClickable(false);
@@ -189,7 +192,7 @@ public class StartActivity extends AppCompatActivity{
                     workbook = new HSSFWorkbook(fileStream);
                     HSSFSheet sheet = workbook.getSheet("TimeStamps");
                     //String value = sheet.getRow(0).getCell(0).getStringCellValue();
-                    sheet.createRow(startclicks).createCell(0).setCellValue(currentTime);
+                    sheet.createRow(startclicks).createCell(0).setCellValue((float)timer.getElapsedTime()/1000);
                     fos = new FileOutputStream(file);
                     workbook.write(fos);
                     Log.d(TAG,"updated value startclicks :" + sheet.getRow(startclicks).getCell(0).getStringCellValue());
@@ -217,6 +220,7 @@ public class StartActivity extends AppCompatActivity{
         public void onClick(View v) {
             FileOutputStream fos = null;
             try {
+                timer.stop();
                 stopclicks = stopclicks+1;
                 Log.d(TAG,"stopclicks :"+stopclicks);
                 // TODO Store timeStamp in file on every click till the recording is going on.
@@ -228,7 +232,7 @@ public class StartActivity extends AppCompatActivity{
                     HSSFSheet sheet = workbook.getSheet("TimeStamps");
                     //String value = sheet.getRow(0).getCell(0).getStringCellValue();
                     if(sheet.getRow(stopclicks)!=null) {
-                        sheet.getRow(stopclicks).createCell(1).setCellValue(currentTime);
+                        sheet.getRow(stopclicks).createCell(1).setCellValue((float)timer.getElapsedTime()/1000);
                         fos = new FileOutputStream(file);
                         workbook.write(fos);
                         Log.d(TAG,"updated value stopclicks :" + sheet.getRow(stopclicks).getCell(1).getStringCellValue());
@@ -307,6 +311,7 @@ public class StartActivity extends AppCompatActivity{
                 else if (remainingTime.trim().equals("1")) {
                     callSnackbar("Recording process has started. Start Activity");
                     //Set excel data collection true since recording has started
+                    timer.start();
                     startTimeButton.setClickable(true);
                     time = Utility.getWaveFileName();
                     callSnackbar(time);
