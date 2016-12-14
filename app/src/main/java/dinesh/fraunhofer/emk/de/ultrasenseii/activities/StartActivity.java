@@ -6,11 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -19,10 +17,14 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFRichTextString;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.hssf.util.HSSFColor;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.Font;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -47,16 +49,18 @@ public class StartActivity extends AppCompatActivity{
     RelativeLayout coordinatorLayout;
     @InjectView(R.id.startButton)
     Button startTimeButton;
-    @InjectView(R.id.stopButton)
-    Button stopTimeButton;
+    /*@InjectView(R.id.stopButton)
+    Button stopTimeButton;*/
     @InjectView(R.id.recordButton)
     Button recordButton;
     @InjectView(R.id.filenameEditText)
     EditText filenameEditText;
     @InjectView(R.id.saveExcelButton)
     Button saveExcel;
-    int startclicks = 0;
-    int stopclicks = 0;
+    int clicks = 0;
+    //int startTimeCell = 0;
+    int prevAns = 1; int cellValToFill = 1;
+    //int stopclicks = 0;
     File file;
     File from;
     HSSFWorkbook workbook;
@@ -121,12 +125,49 @@ public class StartActivity extends AppCompatActivity{
         //make directory for file.
         new File(fileDir).mkdirs();
         HSSFWorkbook workbook = new HSSFWorkbook();
-        HSSFSheet timeStampSheet = workbook.createSheet("TimeStamps");
+        HSSFSheet timeStampSheet = workbook.createSheet("timestamp sheet");
+
+        //Style for header
+        CellStyle headerStyle = workbook.createCellStyle();
+        headerStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);
+        headerStyle.setFillForegroundColor(HSSFColor.LIME.index);
+        headerStyle.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
+        Font font = workbook.createFont();
+        font.setColor(HSSFColor.BLACK.index);
+        font.setBoldweight(Font.BOLDWEIGHT_BOLD);
+        font.setFontHeightInPoints((short) 12);
+        headerStyle.setFont(font);
+        headerStyle.setBorderBottom(HSSFCellStyle.BORDER_MEDIUM);
+        headerStyle.setBorderTop(HSSFCellStyle.BORDER_MEDIUM);
+        headerStyle.setBorderRight(HSSFCellStyle.BORDER_MEDIUM);
+        headerStyle.setBorderLeft(HSSFCellStyle.BORDER_MEDIUM);
+
+        //Style for normal cells
+        CellStyle cellStyle = workbook.createCellStyle();
+        cellStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);
+        Font smallFont = workbook.createFont();
+        smallFont.setColor(HSSFColor.DARK_BLUE.index);
+        smallFont.setBoldweight(Font.BOLDWEIGHT_BOLD);
+        smallFont.setFontHeightInPoints((short) 10);
+        cellStyle.setFont(smallFont);
+
         HSSFRow row = timeStampSheet.createRow(0);
         HSSFCell cell = row.createCell(0);
-        cell.setCellValue(new HSSFRichTextString("Start"));
+        cell.setCellStyle(headerStyle);
+        cell.setCellValue(new HSSFRichTextString("Label start"));
         HSSFCell cell2 = row.createCell(1);
-        cell2.setCellValue(new HSSFRichTextString("Stop"));
+        cell2.setCellStyle(headerStyle);
+        cell2.setCellValue(new HSSFRichTextString("label stop"));
+
+        for(int i = 1; i<100; i++) {
+            HSSFRow r = timeStampSheet.createRow(i);
+            HSSFCell c0 = r.createCell(i);
+            c0.setCellStyle(cellStyle);
+            HSSFCell c1 = r.createCell(i);
+            c1.setCellStyle(cellStyle);
+            c0.setCellValue("");
+            c1.setCellValue("");
+        }
 
         FileOutputStream fos = null;
         try {
@@ -150,7 +191,7 @@ public class StartActivity extends AppCompatActivity{
 
     private void initListeners() {
         startTimeButton.setOnClickListener(startTimeStampListener);
-        stopTimeButton.setOnClickListener(stopTimeStampListener);
+        //stopTimeButton.setOnClickListener(stopTimeStampListener);
         recordButton.setOnClickListener(recordListener);
         saveExcel.setOnClickListener(excelListener);
     }
@@ -182,68 +223,34 @@ public class StartActivity extends AppCompatActivity{
         public void onClick(View v) {
             FileOutputStream fos = null;
             try {
-                startclicks = startclicks+1;
-                Log.d(TAG,"startclicks :"+startclicks);
+                clicks = clicks+1;
+
                 // TODO Store timeStamp in file on every click till the recording is going on.
-                String currentTime = Utility.getTimeStamp();
+                //String currentTime = Utility.getTimeStamp();
                 //File file = new File(fileDir + getString(R.string.app_name) + ".xls");
                 if(file.exists()) {
                     FileInputStream fileStream = new FileInputStream(file);
                     workbook = new HSSFWorkbook(fileStream);
-                    HSSFSheet sheet = workbook.getSheet("TimeStamps");
-                    //String value = sheet.getRow(0).getCell(0).getStringCellValue();
-                    sheet.createRow(startclicks).createCell(0).setCellValue((float)timer.getElapsedTime()/1000);
+                    HSSFSheet sheet = workbook.getSheet("timestamp sheet");
+                    Log.d(TAG,"clicks "+clicks);
+                    Log.d(TAG,"where it goes: "+clicks%2);
+                    if(clicks!=0 && clicks%2 != 0) {//start time
+                        //startTimeCell = startclicks;
+                        if(clicks==1) {
+                            sheet.getRow(clicks).createCell(0).setCellValue((float)timer.getElapsedTime()/1000);
+                        } else {
+                            cellValToFill = clicks - cellValToFill;
+                            sheet.getRow(cellValToFill).createCell(0).setCellValue((float)timer.getElapsedTime()/1000);
+                        }
+
+                    } else if ( clicks!=0 && clicks%2 == 0) {//end time
+                        sheet.getRow(cellValToFill).createCell(1).setCellValue((float)timer.getElapsedTime()/1000);
+                    }
                     fos = new FileOutputStream(file);
                     workbook.write(fos);
-                    Log.d(TAG,"updated value startclicks :" + sheet.getRow(startclicks).getCell(0).getStringCellValue());
                 } else {
                     Log.d(TAG,"no file");
                 }
-                Log.d(TAG,currentTime);
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                if (fos != null) {
-                    try {
-                        fos.flush();
-                        fos.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
-    };
-
-    private View.OnClickListener stopTimeStampListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            FileOutputStream fos = null;
-            try {
-                timer.stop();
-                stopclicks = stopclicks+1;
-                Log.d(TAG,"stopclicks :"+stopclicks);
-                // TODO Store timeStamp in file on every click till the recording is going on.
-                String currentTime = Utility.getTimeStamp();
-                //File file = new File(fileDir + getString(R.string.app_name) + ".xls");
-                if(file.exists()) {
-                    FileInputStream fileStream = new FileInputStream(file);
-                    workbook = new HSSFWorkbook(fileStream);
-                    HSSFSheet sheet = workbook.getSheet("TimeStamps");
-                    //String value = sheet.getRow(0).getCell(0).getStringCellValue();
-                    if(sheet.getRow(stopclicks)!=null) {
-                        sheet.getRow(stopclicks).createCell(1).setCellValue((float)timer.getElapsedTime()/1000);
-                        fos = new FileOutputStream(file);
-                        workbook.write(fos);
-                        Log.d(TAG,"updated value stopclicks :" + sheet.getRow(stopclicks).getCell(1).getStringCellValue());
-                    } else {
-                        stopclicks = stopclicks-1;
-                        callSnackbar("No Start time");
-                    }
-                } else {
-                    Log.d(TAG,"no file");
-                }
-                Log.d(TAG,currentTime);
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -337,3 +344,48 @@ public class StartActivity extends AppCompatActivity{
     static {
         System.loadLibrary("native-lib");
     }*/
+
+
+/*private View.OnClickListener stopTimeStampListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            FileOutputStream fos = null;
+            try {
+                timer.stop();
+                stopclicks = stopclicks+1;
+                Log.d(TAG,"stopclicks :"+stopclicks);
+                // TODO Store timeStamp in file on every click till the recording is going on.
+                String currentTime = Utility.getTimeStamp();
+                //File file = new File(fileDir + getString(R.string.app_name) + ".xls");
+                if(file.exists()) {
+                    FileInputStream fileStream = new FileInputStream(file);
+                    workbook = new HSSFWorkbook(fileStream);
+                    HSSFSheet sheet = workbook.getSheet("TimeStamps");
+                    //String value = sheet.getRow(0).getCell(0).getStringCellValue();
+                    if(sheet.getRow(stopclicks)!=null) {
+                        sheet.getRow(stopclicks).createCell(1).setCellValue((float)timer.getElapsedTime()/1000);
+                        fos = new FileOutputStream(file);
+                        workbook.write(fos);
+                        Log.d(TAG,"updated value stopclicks :" + sheet.getRow(stopclicks).getCell(1).getStringCellValue());
+                    } else {
+                        stopclicks = stopclicks-1;
+                        callSnackbar("No Start time");
+                    }
+                } else {
+                    Log.d(TAG,"no file");
+                }
+                Log.d(TAG,currentTime);
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (fos != null) {
+                    try {
+                        fos.flush();
+                        fos.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    };*/

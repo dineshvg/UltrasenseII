@@ -23,27 +23,28 @@
         android:layout_height="100dp"
         android:orientation="horizontal"
         android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:layout_marginTop="20dp"
         android:layout_below="@id/:logo">
 
         <LinearLayout
-            android:layout_width="75dp"
+            android:layout_width="match_parent"
             android:layout_height="75dp"
             android:layout_weight="0.7"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/startButton"
-                android:layout_width="75dp"
+                android:layout_width="match_parent"
                 android:layout_height="75dp"
-                android:background="@drawable/round_button"
+                android:background="@drawable/rectangle_selector"
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/start_time"
                 android:textColor="#fff" />
 
         </LinearLayout>
 
-        <LinearLayout
+        <!--<LinearLayout
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:layout_weight="0.3"
@@ -58,7 +59,7 @@
                 android:text="@string/stop_time"
                 android:textColor="#fff"/>
 
-        </LinearLayout>
+        </LinearLayout>-->
 
     </LinearLayout>
 
@@ -95,13 +96,16 @@
         android:textColor="@android:color/black"
         android:background="@android:color/transparent"
         android:textStyle="italic"
-        android:hint="Timestamp filename change"/>
+        android:hint="Click on start"/>
 
     <Button
         android:id="@+id/saveExcelButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/rectangle_button"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/rectangle_selector"
         android:layout_alignParentBottom="true"
         android:textAllCaps="false"
         android:text="Rename Excel"
