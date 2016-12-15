@@ -89,7 +89,7 @@
         android:id="@+id/filenameEditText"
         android:layout_below="@+id/buttonPanel2"
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:textSize="25sp"
         android:maxLength="10"
@@ -97,6 +97,28 @@
         android:background="@android:color/transparent"
         android:textStyle="italic"
         android:hint="Click on start"/>
+
+    <LinearLayout
+        android:id="@+id/dataTerminalView"
+        android:layout_below="@+id/filenameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@android:color/black"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/bluetoothTerminal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:maxLines = "100"
+            android:scrollbars = "vertical"
+            android:textColor="#3cff01"/>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/saveExcelButton"

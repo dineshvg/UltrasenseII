@@ -10,11 +10,14 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
@@ -47,20 +50,22 @@ public class StartActivity extends AppCompatActivity{
 
     @InjectView(R.id.activity_start)
     RelativeLayout coordinatorLayout;
+    @InjectView(R.id.dataTerminalView)
+    LinearLayout terminalWindow;
     @InjectView(R.id.startButton)
     Button startTimeButton;
-    /*@InjectView(R.id.stopButton)
-    Button stopTimeButton;*/
+    @InjectView(R.id.bluetoothTerminal)
+    TextView terminal;
     @InjectView(R.id.recordButton)
     Button recordButton;
     @InjectView(R.id.filenameEditText)
     EditText filenameEditText;
     @InjectView(R.id.saveExcelButton)
     Button saveExcel;
+
+    boolean remote =false;
     int clicks = 0;
-    //int startTimeCell = 0;
-    int prevAns = 1; int cellValToFill = 1;
-    //int stopclicks = 0;
+    int cellValToFill = 1;
     File file;
     File from;
     HSSFWorkbook workbook;
@@ -73,6 +78,10 @@ public class StartActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         ButterKnife.inject(this);
+        // handle intent extras
+        Bundle extras = getIntent().getExtras();
+        if(extras != null)
+            handleExtras(extras);
         initListeners();
         getPermissionForExcel();
         setFilters();
@@ -82,9 +91,19 @@ public class StartActivity extends AppCompatActivity{
         //startTimeButton.setClickable(false);
     }
 
+    private void handleExtras(Bundle extras) {
+        int terminalInt = extras.getInt(Config.BROADCAST_ACTIVITY);
+        if(terminalInt==Config.REMOTE) {
+            remote = true;
+        } else {
+            terminalWindow.setVisibility(View.GONE);
+        }
+    }
+
     private void setFilters() {
         IntentFilter filter = new IntentFilter();
         filter.addAction(Config.BROADCAST_COUNTDOWN_TIMER);
+        filter.addAction(Config.BROADCAST_RECEIVE_COMMAND);
         registerReceiver(threadInfoReceiver, filter);
     }
 
@@ -221,50 +240,54 @@ public class StartActivity extends AppCompatActivity{
     private View.OnClickListener startTimeStampListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            FileOutputStream fos = null;
-            try {
-                clicks = clicks+1;
+            updateTimeStamp();
+        }
+    };
 
-                // TODO Store timeStamp in file on every click till the recording is going on.
-                //String currentTime = Utility.getTimeStamp();
-                //File file = new File(fileDir + getString(R.string.app_name) + ".xls");
-                if(file.exists()) {
-                    FileInputStream fileStream = new FileInputStream(file);
-                    workbook = new HSSFWorkbook(fileStream);
-                    HSSFSheet sheet = workbook.getSheet("timestamp sheet");
-                    Log.d(TAG,"clicks "+clicks);
-                    Log.d(TAG,"where it goes: "+clicks%2);
-                    if(clicks!=0 && clicks%2 != 0) {//start time
-                        //startTimeCell = startclicks;
-                        if(clicks==1) {
-                            sheet.getRow(clicks).createCell(0).setCellValue((float)timer.getElapsedTime()/1000);
-                        } else {
-                            cellValToFill = clicks - cellValToFill;
-                            sheet.getRow(cellValToFill).createCell(0).setCellValue((float)timer.getElapsedTime()/1000);
-                        }
+    private void updateTimeStamp() {
+        FileOutputStream fos = null;
+        try {
+            clicks = clicks+1;
 
-                    } else if ( clicks!=0 && clicks%2 == 0) {//end time
-                        sheet.getRow(cellValToFill).createCell(1).setCellValue((float)timer.getElapsedTime()/1000);
+            // TODO Store timeStamp in file on every click till the recording is going on.
+            //String currentTime = Utility.getTimeStamp();
+            //File file = new File(fileDir + getString(R.string.app_name) + ".xls");
+            if(file.exists()) {
+                FileInputStream fileStream = new FileInputStream(file);
+                workbook = new HSSFWorkbook(fileStream);
+                HSSFSheet sheet = workbook.getSheet("timestamp sheet");
+                Log.d(TAG,"clicks "+clicks);
+                Log.d(TAG,"where it goes: "+clicks%2);
+                if(clicks!=0 && clicks%2 != 0) {//start time
+                    //startTimeCell = startclicks;
+                    if(clicks==1) {
+                        sheet.getRow(clicks).createCell(0).setCellValue((float)timer.getElapsedTime()/1000);
+                    } else {
+                        cellValToFill = clicks - cellValToFill;
+                        sheet.getRow(cellValToFill).createCell(0).setCellValue((float)timer.getElapsedTime()/1000);
                     }
-                    fos = new FileOutputStream(file);
-                    workbook.write(fos);
-                } else {
-                    Log.d(TAG,"no file");
+
+                } else if ( clicks!=0 && clicks%2 == 0) {//end time
+                    sheet.getRow(cellValToFill).createCell(1).setCellValue((float)timer.getElapsedTime()/1000);
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                if (fos != null) {
-                    try {
-                        fos.flush();
-                        fos.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                fos = new FileOutputStream(file);
+                workbook.write(fos);
+            } else {
+                Log.d(TAG,"no file");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (fos != null) {
+                try {
+                    fos.flush();
+                    fos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
         }
-    };
+    }
 
     private View.OnClickListener recordListener = new View.OnClickListener() {
         @Override
@@ -325,9 +348,35 @@ public class StartActivity extends AppCompatActivity{
                     recordButton.setText(getResources().getString(R.string.stop_record));
                     recordButton.setClickable(true);
                 }
+            } else if(intent.getAction().equals(Config.BROADCAST_RECEIVE_COMMAND)) {
+                Bundle bundle = intent.getExtras();
+                String remoteCommand = bundle.getString(Config.BLUETOOTH_MSG);
+                if(remoteCommand!=null || !remoteCommand.equals("")) {
+                    terminal.append("Remote command : "+remoteCommand+"\n");
+                    scrollDown();
+                    terminal.setMovementMethod(new ScrollingMovementMethod());
+                    if (remoteCommand.equals(Config.START_RECORDING) || remoteCommand.equals(Config.STOP_RECORDING)) {
+                        startRecordProcess();
+                        terminal.append("Recording process going on"+"\n");
+                        scrollDown();
+                        terminal.setMovementMethod(new ScrollingMovementMethod());
+                    } else if (remoteCommand.equals(Config.GET_TIMESTAMPS)) {
+                        updateTimeStamp();
+                        terminal.append("Timestamp updated"+"\n");
+                        scrollDown();
+                        terminal.setMovementMethod(new ScrollingMovementMethod());
+                    }
+                }
+
             }
         }
     };
+
+    private void scrollDown() {
+        while (terminal.canScrollVertically(1)) {
+            terminal.scrollBy(0, 10);
+        }
+    }
 }
 
 // Example of a call to a native method

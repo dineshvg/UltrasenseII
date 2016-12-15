@@ -4,7 +4,101 @@
     android:id="@+id/activity_settings"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/wallpaper"
     tools:context="dinesh.fraunhofer.emk.de.ultrasenseii.activities.SettingsActivity">
+
+    <ImageView
+        android:id="@+id/:logo"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:alpha="0.6"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo"/>
+
+    <LinearLayout
+        android:id="@+id/buttonPanel"
+        android:layout_below="@+id/:logo"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp">
+
+        <Button
+            android:id="@+id/remoteButton"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:background="@drawable/rectangle_selector"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/start_receivers"
+            android:textColor="#fff" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/terminal"
+        android:layout_below="@+id/buttonPanel"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:orientation="horizontal"
+        android:background="@android:color/black"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/terminalView"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:maxLines = "50"
+            android:scrollbars = "vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:textSize="10sp"
+            android:text="@string/terminal_text"
+            android:textColor="#3cff01" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttonPanel2"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="100dp">
+
+        <Button
+            android:id="@+id/ownCotrol"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/rectangle_selector"
+            android:gravity="center_vertical|center_horizontal"
+            android:textAllCaps="false"
+            android:text="@string/begin_own"
+            android:textColor="#fff" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="30dp"/>
+
+        <Button
+            android:id="@+id/remoteControl"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/rectangle_selector"
+            android:gravity="center_vertical|center_horizontal"
+            android:textAllCaps="false"
+            android:text="@string/begin_remote"
+            android:textColor="#fff" />
+
+
+
+    </LinearLayout>
 
 
 

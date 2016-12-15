@@ -4,4 +4,17 @@
     <string name="stop_record">Stop</string>
     <string name="stop_time">End</string>
     <string name="start_time">Save Timestamp</string>
+    <string name="start_receivers">Grant remote access</string>
+    <string name="begin_own">Start App as Owner</string>
+    <string name="begin_remote">Start App as Remote</string>
+    <string name="terminal_text">
+        <b>Terminal to check remote access obtained. \n</b>
+        <u>How to connect ? \n</u>
+        <i>
+            \t " 1. Obtain access with Grant remote access. \n"
+            \t " 2. Click on Find paired devices in the Ultrasense controller App. \n"
+            \t " 3. Click on start in the Ultrasense controller App. \n"
+            \t " 4. Click on Start App as Remote in this app. \n"
+        </i>
+    </string>
 </resources>
