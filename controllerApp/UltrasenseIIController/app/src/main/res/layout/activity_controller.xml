@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_controller"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="ultrasensecontroller.de.emk.fraunhofer.dinesh.ultrasenseiicontroller.ControllerActivity">
+
+    <LinearLayout
+        android:id="@+id/buttonPanel"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp">
+
+        <LinearLayout
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_weight="0.7"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/timeStampButton"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:background="@drawable/rectangle_button"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/timestamp"
+                android:textColor="#fff" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_weight="0.3"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/recordButton"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:background="@drawable/rectangle_button"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/start_record"
+                android:textColor="#fff"/>
+
+        </LinearLayout>
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/bluetoothInfoHolder"
+        android:layout_below="@+id/buttonPanel"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="@android:color/black"
+        android:layout_height="300dp">
+
+        <TextView
+            android:id="@+id/bluetoothInfo"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textColor="#3cff01"
+            android:scrollbars = "vertical"
+            android:textSize="10sp"
+            android:text="@string/connect"
+            android:layout_height="280dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/connectButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/rectangle_button"
+        android:layout_alignParentBottom="true"
+        android:textAllCaps="false"
+        android:text="@string/checkConnect"
+        android:textColor="#fff" />
+</RelativeLayout>

@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">UltrasenseIIController</string>
+    <string name="start_record">Start</string>
+    <string name="stop_record">Stop</string>
+    <string name="timestamp">Update time</string>
+    <string name="checkConnect">Find paired devices</string>
+    <string name="connect">
+        <b>How to connect? </b> \n
+        <i>
+            "1. Click on grant remote access in UltrasenseII."\n
+            "2. Click on connect to Ultrasense here."\n
+            "3. Click on start."\n
+            "4. Click on start app as remote in UltrasenseII."\n \n
+        </i>
+
+    </string>
+</resources>
